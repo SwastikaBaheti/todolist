@@ -1,0 +1,55 @@
+<div class="container addtodos">
+    <form>
+        <input class="input-todo" type="text" name="inputTodo" size="50" placeholder="Enter new task" [(ngModel)]="inputTodo">
+        <button class="btn btn-primary add" (click)="addTodo()">Add Task</button>
+    </form>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 mt-3">
+            <div class="d-grid">
+                <button class="btn btn-outline-primary mb-3" (click)="displayAll()">All Tasks</button>
+            </div>
+            <div *ngIf="allTask">
+                <div class="alltodo todos" *ngFor="let todo of todos; let i=index">
+                    <div class="todo">
+                        <div class="id">{{i+1+"."}}</div>
+                        <div class="content">{{todo.content}}</div>
+                        <button class="btn btn-danger delete" (click)="deleteAllTodo(i)">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mt-3">
+            <div class="d-grid">
+                <button class="btn btn-outline-primary mb-3" (click)="displayActive()">Active Tasks</button>
+            </div>
+            <div *ngIf="active">
+                <div class="activetodo todos" *ngFor="let todo of todos; let i=index">
+                    <div class="todo" *ngIf="todo.isActive">
+                        <div class="content">{{todo.content}}</div>
+                        <button class="btn btn-success" (click)="completedTask(i)">Completed</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mt-3">
+            <div class="d-grid">
+                <button class="btn btn-outline-primary mb-3" (click)="displayCompleted()">Completed Tasks</button>
+            </div>
+            
+            <div *ngIf="completed">
+                <div class="completedtodo todos" *ngFor="let todo of todos; let i=index">
+                    <div class="todo" *ngIf="todo.isCompleted">
+                        <div class="content">{{todo.content}}</div>
+                        <button class="btn btn-primary" (click)="activeTask(i)">Active</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

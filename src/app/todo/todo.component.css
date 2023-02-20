@@ -1,0 +1,30 @@
+.todo, .addtodos form{
+    display: flex;
+    justify-content: space-between;
+    background-color: #FFF;
+	border: 1px solid #DDD;
+    padding: 10px 15px;
+    font-family: sans-serif;
+}
+
+.addtodos form{
+    justify-content: center;
+}
+
+.addtodos form input{
+    margin-right: 3em;
+}
+
+h4{
+    text-align: center;
+}
+
+.input-todo{
+    border-radius: 0.5em;
+}
+
+.todo{
+    align-items: center;
+}
+
+
